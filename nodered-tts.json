@@ -1,0 +1,596 @@
+[
+    {
+        "id": "57af723a.b537bc",
+        "type": "comment",
+        "z": "bd76794419f494b6",
+        "name": "TTS",
+        "info": "",
+        "x": 430,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9281196f.588f28",
+        "type": "ui_audio",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "voice": "Google UK English Female",
+        "always": true,
+        "x": 720,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "960ce8a6.afb598",
+        "type": "ui_text_input",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "38f2d576.1c51fa",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "9281196f.588f28",
+                "b9bf6c22.b0b08",
+                "54737410.9d62cc"
+            ]
+        ]
+    },
+    {
+        "id": "93976d2e.a1a59",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Hello",
+        "payload": "Hello",
+        "payloadType": "str",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "960ce8a6.afb598"
+            ]
+        ]
+    },
+    {
+        "id": "af72cd56.23219",
+        "type": "ui_text",
+        "z": "bd76794419f494b6",
+        "group": "38f2d576.1c51fa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 790,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "54737410.9d62cc",
+        "type": "function",
+        "z": "bd76794419f494b6",
+        "name": "Check Text",
+        "func": "const text=msg.payload;\nif(text !== \"\"){\n    msg.payload = \"\";\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "960ce8a6.afb598"
+            ]
+        ]
+    },
+    {
+        "id": "b9bf6c22.b0b08",
+        "type": "function",
+        "z": "bd76794419f494b6",
+        "name": "Check Text",
+        "func": "const text =msg.payload;\nif(text !== \"\"){\n    msg.payload = text;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 240,
+        "wires": [
+            [
+                "af72cd56.23219"
+            ]
+        ]
+    },
+    {
+        "id": "8bd566cc.a63ae8",
+        "type": "ui_button",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Hello.",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "Hello.",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "7cd13e9d.f9898"
+            ]
+        ]
+    },
+    {
+        "id": "7cd13e9d.f9898",
+        "type": "link out",
+        "z": "bd76794419f494b6",
+        "name": "text out",
+        "links": [
+            "d24e124a.c214f"
+        ],
+        "x": 595,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d24e124a.c214f",
+        "type": "link in",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "links": [
+            "7cd13e9d.f9898",
+            "eaebca67.0f5158",
+            "6d08c66a.25f388",
+            "f3c5dbfc.2d9c98",
+            "197fff6d.4aeae1",
+            "c5bf3ffb.2a60a",
+            "7ff0c4dee57c971c"
+        ],
+        "x": 215,
+        "y": 300,
+        "wires": [
+            [
+                "960ce8a6.afb598"
+            ]
+        ]
+    },
+    {
+        "id": "b4cece34.ee9c6",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 360,
+        "wires": [
+            [
+                "8bd566cc.a63ae8"
+            ]
+        ]
+    },
+    {
+        "id": "6d587618.43d988",
+        "type": "ui_button",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Good bye.",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Good bye.",
+        "payloadType": "str",
+        "topic": "",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "eaebca67.0f5158"
+            ]
+        ]
+    },
+    {
+        "id": "eaebca67.0f5158",
+        "type": "link out",
+        "z": "bd76794419f494b6",
+        "name": "text out",
+        "links": [
+            "d24e124a.c214f"
+        ],
+        "x": 595,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6196e5cc.e89dcc",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 400,
+        "wires": [
+            [
+                "6d587618.43d988"
+            ]
+        ]
+    },
+    {
+        "id": "38577167.1bdf5e",
+        "type": "ui_button",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Thank you.",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Thank you.",
+        "payloadType": "str",
+        "topic": "",
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "6d08c66a.25f388"
+            ]
+        ]
+    },
+    {
+        "id": "6d08c66a.25f388",
+        "type": "link out",
+        "z": "bd76794419f494b6",
+        "name": "text out",
+        "links": [
+            "d24e124a.c214f"
+        ],
+        "x": 595,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "249f8ee4.5b8722",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 440,
+        "wires": [
+            [
+                "38577167.1bdf5e"
+            ]
+        ]
+    },
+    {
+        "id": "294ae2c2.91d22e",
+        "type": "ui_button",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "I don't know.",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "I don't know.",
+        "payloadType": "str",
+        "topic": "",
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "f3c5dbfc.2d9c98"
+            ]
+        ]
+    },
+    {
+        "id": "f3c5dbfc.2d9c98",
+        "type": "link out",
+        "z": "bd76794419f494b6",
+        "name": "text out",
+        "links": [
+            "d24e124a.c214f"
+        ],
+        "x": 595,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "45ea413f.8440b",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "294ae2c2.91d22e"
+            ]
+        ]
+    },
+    {
+        "id": "eaa7dcb9.25931",
+        "type": "ui_button",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "order": 6,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Yes.",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "Yes.",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 430,
+        "y": 520,
+        "wires": [
+            [
+                "197fff6d.4aeae1"
+            ]
+        ]
+    },
+    {
+        "id": "197fff6d.4aeae1",
+        "type": "link out",
+        "z": "bd76794419f494b6",
+        "name": "text out",
+        "links": [
+            "d24e124a.c214f"
+        ],
+        "x": 595,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ff028219.b6adc",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 520,
+        "wires": [
+            [
+                "eaa7dcb9.25931"
+            ]
+        ]
+    },
+    {
+        "id": "c7c5ae43.a97ab",
+        "type": "ui_button",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "order": 7,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "No.",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "No.",
+        "payloadType": "str",
+        "topic": "",
+        "x": 430,
+        "y": 560,
+        "wires": [
+            [
+                "c5bf3ffb.2a60a"
+            ]
+        ]
+    },
+    {
+        "id": "c5bf3ffb.2a60a",
+        "type": "link out",
+        "z": "bd76794419f494b6",
+        "name": "text out",
+        "links": [
+            "d24e124a.c214f"
+        ],
+        "x": 595,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f102f5e6.ffc7a8",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 560,
+        "wires": [
+            [
+                "c7c5ae43.a97ab"
+            ]
+        ]
+    },
+    {
+        "id": "34eebec69c8aa1bd",
+        "type": "ui_button",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "group": "38f2d576.1c51fa",
+        "order": 8,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Bye Bye",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "Bye bye",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 440,
+        "y": 600,
+        "wires": [
+            [
+                "7ff0c4dee57c971c"
+            ]
+        ]
+    },
+    {
+        "id": "7ff0c4dee57c971c",
+        "type": "link out",
+        "z": "bd76794419f494b6",
+        "name": "text out",
+        "mode": "link",
+        "links": [
+            "d24e124a.c214f"
+        ],
+        "x": 595,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "bebeaa7955eb851f",
+        "type": "inject",
+        "z": "bd76794419f494b6",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 600,
+        "wires": [
+            [
+                "34eebec69c8aa1bd"
+            ]
+        ]
+    },
+    {
+        "id": "38f2d576.1c51fa",
+        "type": "ui_group",
+        "name": "TTS",
+        "tab": "725bf19e.f2322",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "725bf19e.f2322",
+        "type": "ui_tab",
+        "name": "Cakap-cakap",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
