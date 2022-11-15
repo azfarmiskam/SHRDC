@@ -1,0 +1,540 @@
+[
+    {
+        "id": "dd4951809ea21770",
+        "type": "group",
+        "z": "8ce87a7170be1489",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "b4cf189483c6a553",
+            "e5f1c43600fe553b",
+            "9b093efeddfbbeb5",
+            "181c0330ed3de93e",
+            "b319e531d9a8931b",
+            "2383227034bb6322",
+            "eebbede653f4c434"
+        ],
+        "x": 34,
+        "y": 79,
+        "w": 672,
+        "h": 222
+    },
+    {
+        "id": "b4cf189483c6a553",
+        "type": "inject",
+        "z": "8ce87a7170be1489",
+        "g": "dd4951809ea21770",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "9b093efeddfbbeb5"
+            ]
+        ]
+    },
+    {
+        "id": "e5f1c43600fe553b",
+        "type": "debug",
+        "z": "8ce87a7170be1489",
+        "g": "dd4951809ea21770",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9b093efeddfbbeb5",
+        "type": "function",
+        "z": "8ce87a7170be1489",
+        "g": "dd4951809ea21770",
+        "name": "function 1",
+        "func": "// Create a Date object from the payload\nvar date = new Date(msg.payload);\n// Change the payload to be a formatted Date string\nmsg.payload = date.toString();\n// Return the message so it can be sent on\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 120,
+        "wires": [
+            [
+                "2383227034bb6322"
+            ]
+        ]
+    },
+    {
+        "id": "181c0330ed3de93e",
+        "type": "inject",
+        "z": "8ce87a7170be1489",
+        "g": "dd4951809ea21770",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World",
+        "payloadType": "str",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "e5f1c43600fe553b"
+            ]
+        ]
+    },
+    {
+        "id": "b319e531d9a8931b",
+        "type": "inject",
+        "z": "8ce87a7170be1489",
+        "g": "dd4951809ea21770",
+        "name": "JSON inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Name\":\"Json la ni\",\"Number\":12345}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "e5f1c43600fe553b"
+            ]
+        ]
+    },
+    {
+        "id": "2383227034bb6322",
+        "type": "ui_text",
+        "z": "8ce87a7170be1489",
+        "g": "dd4951809ea21770",
+        "group": "725d81581bb249a7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 590,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "eebbede653f4c434",
+        "type": "inject",
+        "z": "8ce87a7170be1489",
+        "g": "dd4951809ea21770",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "2383227034bb6322"
+            ]
+        ]
+    },
+    {
+        "id": "725d81581bb249a7",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "b906506c6178a55d",
+        "order": 1,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b906506c6178a55d",
+        "type": "ui_tab",
+        "name": "Try",
+        "icon": "fa-user-circle-o",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "afa01fc9a27f85f8",
+        "type": "group",
+        "z": "8ce87a7170be1489",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d60cc742d5bbc2a5",
+            "9510b22a52afe4a8",
+            "c6dcd2a6f3f6e572",
+            "4bc3a1298752d520"
+        ],
+        "x": 34,
+        "y": 319,
+        "w": 672,
+        "h": 162
+    },
+    {
+        "id": "d60cc742d5bbc2a5",
+        "type": "inject",
+        "z": "8ce87a7170be1489",
+        "g": "afa01fc9a27f85f8",
+        "name": "Masa",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "9510b22a52afe4a8"
+            ]
+        ]
+    },
+    {
+        "id": "9510b22a52afe4a8",
+        "type": "function",
+        "z": "8ce87a7170be1489",
+        "g": "afa01fc9a27f85f8",
+        "name": "function 3",
+        "func": "// Create a Date object from the payload\nvar date = new Date(msg.payload);\nvar mesg = msg.greet\n// Change the payload to be a formatted Date string\nmsg.payload = date.toString();\nmsg.greet = String(\"Hello Everybody!\")\n// Return the message so it can be sent on\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "c6dcd2a6f3f6e572",
+                "4bc3a1298752d520"
+            ]
+        ]
+    },
+    {
+        "id": "c6dcd2a6f3f6e572",
+        "type": "debug",
+        "z": "8ce87a7170be1489",
+        "g": "afa01fc9a27f85f8",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "4bc3a1298752d520",
+        "type": "debug",
+        "z": "8ce87a7170be1489",
+        "g": "afa01fc9a27f85f8",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "greet",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6d2a212d24913828",
+        "type": "group",
+        "z": "8ce87a7170be1489",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "21f9b6348e9472b6",
+            "a3ab9de7f20e7b07",
+            "7401368eed62b1b9",
+            "399bb310b78ddf1b",
+            "ed7007400ec60bb8",
+            "29e46fd32a8b0640",
+            "d9e5dcfe7d2e1f3e",
+            "25fbe9442b516d41"
+        ],
+        "x": 34,
+        "y": 499,
+        "w": 832,
+        "h": 302
+    },
+    {
+        "id": "21f9b6348e9472b6",
+        "type": "inject",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "a3ab9de7f20e7b07"
+            ]
+        ]
+    },
+    {
+        "id": "a3ab9de7f20e7b07",
+        "type": "http request",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "RecentQuack",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 300,
+        "y": 600,
+        "wires": [
+            [
+                "7401368eed62b1b9"
+            ]
+        ]
+    },
+    {
+        "id": "7401368eed62b1b9",
+        "type": "csv",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "ed7007400ec60bb8"
+            ]
+        ]
+    },
+    {
+        "id": "399bb310b78ddf1b",
+        "type": "debug",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ed7007400ec60bb8",
+        "type": "switch",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "",
+        "property": "payload.mag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "7",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 680,
+        "wires": [
+            [
+                "29e46fd32a8b0640"
+            ]
+        ]
+    },
+    {
+        "id": "29e46fd32a8b0640",
+        "type": "change",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "PANIC!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 680,
+        "wires": [
+            [
+                "399bb310b78ddf1b"
+            ]
+        ]
+    },
+    {
+        "id": "d9e5dcfe7d2e1f3e",
+        "type": "debug",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "25fbe9442b516d41",
+        "type": "comment",
+        "z": "8ce87a7170be1489",
+        "g": "6d2a212d24913828",
+        "name": "Earthquack Example",
+        "info": "",
+        "x": 470,
+        "y": 540,
+        "wires": []
+    }
+]
